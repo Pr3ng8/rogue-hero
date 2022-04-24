@@ -1,0 +1,55 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #f7fafc;
+}
+html,body {
+    background-color: #2C2973;
+    height: 100%;
+}
+nav {
+    background-color: #3F3CA6;
+}
+
+.nav-link {
+    color: #f7fafc;
+}
+
+.nav-link:hover {
+    color: #f7fafc;
+    text-shadow: 0px 6px 0px #CE5937;
+    transform: scale(1.1);
+}
+
+.welcome-text {
+    padding: 2em;
+    margin: 3em;
+    background-color: #716DF2;
+    border-radius: 25px;
+}
+
+.welcome-text p {
+    margin: 0;
+    font-size: 81px;
+    color: #201240;
+}
+
+.welcome-text span {
+    color: white;
+}
+
+.welcome-text .game {
+    text-decoration: underline;
+}
+
+.login {
+    background-color: #716DF2;
+    border-radius: 25px;
+}
+
+.bg-lightpurple {
+    background-color: #716DF2;
+}
+
