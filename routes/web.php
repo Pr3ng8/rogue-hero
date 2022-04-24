@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{RegistrationController,HomeController,GamesController,StatsController};
-use App\Http\Controllers\Auth\LoginCOntroller;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
