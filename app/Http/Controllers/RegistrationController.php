@@ -18,7 +18,7 @@ class RegistrationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function store(Request $request)
     {
@@ -37,6 +37,6 @@ class RegistrationController extends Controller
 
         Auth::login($user);
 
-        return view('user.welcome');
+        return view('users.welcome');
     }
 }

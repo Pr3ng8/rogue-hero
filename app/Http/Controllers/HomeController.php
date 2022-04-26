@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -33,5 +34,19 @@ class HomeController extends Controller
     public function index()
     {
         return view('users.welcome');
+    }
+
+    /**
+     * Show the application dashboard for logged in users.
+     *
+     * @return \Illuminate\Routing\Redirector
+     */
+    public function fallback()
+    {
+        if (Auth::check()) {
+            return redirect('kezdolap');
+        }
+
+       return redirect('bemutatkozo');
     }
 }
