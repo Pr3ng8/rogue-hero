@@ -32,7 +32,7 @@ Route::prefix('game')->group(function () {
 Route::middleware(['guest'])->group(function () {
 
     Route::get('/bemutatkozo', [HomeController::class,'landing'])->name('Bemutatkozó');
-    Route::get('/', [HomeController::class,'landing']);
+    Route::get('/', [HomeController::class,'fallback']);
 
     Route::get('/regisztracio', [RegistrationController::class,'create'])->name("Regisztráció");
     Route::post('/regisztracio', [RegistrationController::class,'store'])->name("createUser");
@@ -45,7 +45,6 @@ Route::middleware(['guest'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class,'index']);
 
     Route::name('user.')->group(function () {
 
