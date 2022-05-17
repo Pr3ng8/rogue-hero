@@ -4,7 +4,7 @@
 
         <form class="p-3" method="POST" action="{{ route('createUser')}}">
             @CSRF
-            <h1>Hozd létre a hősödet!</h1>
+            <h1 >Hozd létre a hősödet!</h1>
 
             <div class="mb-3">
                 <x-label for="username" :value="__('Játékos név')" />
@@ -22,6 +22,16 @@
                 <x-label for="password_confirmation" :value="__('Jelszó újból')" />
 
                 <x-input id="password" type="password" name="password_confirmation" :value="old('password_confirmation')" required autofocus />
+            </div>
+
+            <div class="mb-3">
+                <x-label for="team_id" :value="__('Válassz Csapatot')" />
+                <select class="form-select" name="team_id" id="team_id" aria-label="Default select example">
+                    <option  class="text-dark">Válassz</option>
+                    @foreach($teams as $team)
+                        <option class="text-dark" value="{{ $team->id  }}">{{ $team->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="flex items-center justify-end mt-4">

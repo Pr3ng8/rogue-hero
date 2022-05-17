@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{RegistrationController,HomeController,GamesController,StatsController};
+use App\Http\Controllers\{LeaderBoardController,
+    RegistrationController,
+    HomeController,
+    GamesController,
+    StatsController};
 use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +18,11 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::middleware(['auth'])->group(function () {
+Route::prefix('game')->group(function () {
+    Route::post('login', [LoginController::class, 'gameLogin'])->name('gameLogin');
+});
+
+Route::middleware(['game'])->group(function () {
 
     Route::prefix('game')->group(function () {
 
@@ -25,9 +33,6 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-Route::prefix('game')->group(function () {
-    Route::post('login', [LoginController::class, 'gameLogin'])->name('gameLogin');
-});
 
 Route::middleware(['guest'])->group(function () {
 
@@ -40,7 +45,11 @@ Route::middleware(['guest'])->group(function () {
     Route::get('login', [LoginController::class, 'create']) ->name('Belépés');
 
     Route::post('login', [LoginController::class, 'store'])->name('login');
+});
 
+Route::prefix('leaderboards')->group(function () {
+    Route::get('/players', [LeaderBoardController::class, 'playersLeaderBoard']) ->name('players');
+    Route::get('/teams', [LeaderBoardController::class, 'teamsLeaderBoard']) ->name('teams');
 });
 
 
@@ -61,5 +70,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::fallback([HomeController::class,'fallback']);
+//Route::fallback([HomeController::class,'fallback']);
 

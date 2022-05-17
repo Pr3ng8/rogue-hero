@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{User,Stat};
+use App\Models\{Team, User, Stat};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +11,8 @@ class RegistrationController extends Controller
 {
     public function create()
     {
-        return view('guests.registration');
+        $teams = Team::all();
+        return view('guests.registration', ['teams' => $teams]);
     }
 
     /**
@@ -23,13 +24,15 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => ['required', 'string', 'max:255','unique:users'],
+            'username' => ['required', 'string', 'max:30','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'team_id' => ['required', 'numeric','exists:teams,id'],
         ]);
 
         $user = User::create([
             'username' => $request->username,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'team_id' => $request->team_id
         ]);
 
         $stat = Stat::create(['user_id' => $user->id]);

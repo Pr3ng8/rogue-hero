@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'password',
+        'team_id'
     ];
 
     /**
@@ -52,8 +53,18 @@ class User extends Authenticatable
     /**
      * Get the post that owns the comment.
      */
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
+    }
+
+    /**
+     * Get the post that owns the comment.
+     */
     public function games()
     {
         return $this->hasMany(Game::class, 'user_id');
     }
+
+
 }

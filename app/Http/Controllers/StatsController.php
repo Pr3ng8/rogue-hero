@@ -14,7 +14,7 @@ class StatsController extends Controller
      */
     public function index()
     {
-        return view('users.stat.stat',['stats' => Auth::user()->stats]);
+        return view('users.stat.stat',['stats' => Auth::user()->stats,'team' => Auth::user()->team]);
     }
 
 

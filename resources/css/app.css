@@ -23,6 +23,7 @@ nav {
     transform: scale(1.1);
 }
 
+
 .welcome-text {
     padding: 2em;
     margin: 3em;
@@ -51,4 +52,52 @@ nav {
 
 .bg-lightpurple {
     background-color: #716DF2;
+}
+
+.players .card, .teams .card {
+    color: #3F3F40;
+    border-radius: 1em;
+}
+.first {
+    background: rgb(191,128,52);
+    background: linear-gradient(357deg, rgba(191,128,52,1) 12%, rgba(217,158,50,1) 61%, rgba(242,199,64,1) 86%);
+
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
+}
+.second {
+    background: rgb(191,191,191);
+    background: linear-gradient(357deg, rgba(191,191,191,1) 11%, rgba(140,140,140,1) 41%, rgba(166,166,166,1) 83%);
+
+}
+.third {
+    background: rgb(191,116,99);
+    background: linear-gradient(357deg, rgba(191,116,99,1) 0%, rgba(140,82,69,1) 44%, rgba(217,147,121,1) 100%);
+    border-radius: 1em;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.dropdown-item:hover {
+    color: #f7fafc;
+    text-shadow: 0px 6px 0px #CE5937;
+    transform: scale(1.1);
+    background-color: inherit;
 }

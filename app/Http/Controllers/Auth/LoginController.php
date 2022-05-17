@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Providers\RouteServiceProvider;
-use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use function redirect;
@@ -45,13 +44,19 @@ class LoginController extends Controller
      */
     public function gameLogin(LoginRequest $request)
     {
-        $request->authenticate();
+        $data = $request->all();
+
+        if (! Auth::attempt(['username' =>$data['username'],'password' => $data['password']]) ) {
+            return response()->json(['msg'=>'NO'])
+                ->setStatusCode(403);
+        }
 
         $request->session()->regenerate();
 
         return response()->json([
-            'username' => Auth::user()->username
-        ]);
+            'username' => Auth::user()->username,
+            'user_id' => Auth::user()->id
+        ])->setStatusCode(200);
     }
 
     /**
