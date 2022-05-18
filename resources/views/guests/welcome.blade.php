@@ -17,7 +17,7 @@
     <div class="welcome-text">
         <p>Üdvözül</p>
         <p>A</p>
-        <p>Rogue <span class="hero">Hero</span> </p>
+        <p>Book of the  <span class="hero">Dead</span> </p>
         <p class="game">Játék</p>
         <img src="{{ asset('images/jatekos.png')}}" alt="Girl in a jacket">
     </div>

@@ -16,7 +16,7 @@
         <p>Üdvözül</p>
         <p>Újra</p>
         <p class="text-red">A</p>
-        <p>Rogue <span class="hero">Hero</span> Játék</p>
+        <p>Book fo the  <span class="hero">Dead</span> Játék</p>
         <img src="{{ asset('images/jatekos.png')}}" alt="Girl in a jacket">
     </div>
 </x-app-layout>
