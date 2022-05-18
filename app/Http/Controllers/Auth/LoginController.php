@@ -42,16 +42,14 @@ class LoginController extends Controller
      *
      * @param  \App\Http\Requests\LoginRequest  $request
      */
-    public function gameLogin(LoginRequest $request)
+    public function gameLogin(Request $request)
     {
         $data = $request->all();
 
         if (! Auth::attempt(['username' =>$data['username'],'password' => $data['password']]) ) {
-            return response()->json(['msg'=>'NO'])
+            return response()->json(['msg'=>'no'])
                 ->setStatusCode(403);
         }
-
-        $request->session()->regenerate();
 
         return response()->json([
             'username' => Auth::user()->username,
