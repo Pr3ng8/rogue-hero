@@ -13,3 +13,4 @@ A weboldal a játék statisztikai adatinak megjelenítéséhez készült. Ezen k
 Ingyenes tárhelyet használunk a nethely.hu-t, ami rendelkezik 5MB ingyenes adatbázissal. Php 8.0, Laravel 9.x, ngnix ami egy web szerver, html, bootstrap 5, és saját css. Local környezethez PhpStorm, Docker az adatbázishoz, npm, composer-t.
 
 ## Use case Diagram
+![image](https://user-images.githubusercontent.com/33898680/168993878-eaecd65e-6f45-49a4-9723-c0bdfadbace0.png)
